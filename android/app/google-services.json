@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "811673093607",
+    "project_id": "synease-18d6e",
+    "storage_bucket": "synease-18d6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811673093607:android:5a440b7150806233232942",
+        "android_client_info": {
+          "package_name": "com.example.syndease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811673093607-hfp7h7pk9orfsijqokr0j46s5ah8v52a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVVA6pGPbbE0ZuO4TO-JubBfvs32pxvj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811673093607-hfp7h7pk9orfsijqokr0j46s5ah8v52a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
