@@ -9,7 +9,7 @@ import 'package:syndease/utils/widgets.dart';
 
 import '../../models/group_report.dart';
 import '../../models/report.dart';
-import '../../utils/appVars.dart';
+import '../../utils/app_vars.dart';
 
 class SyndicReportDetailController extends GetxController {
   RxBool loading = false.obs;

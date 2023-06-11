@@ -3,7 +3,7 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/widgets.dart';
 import '../controllers/verify_success_controller.dart';
 

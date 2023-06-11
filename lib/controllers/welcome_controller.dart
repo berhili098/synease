@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:get/get.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/services.dart';
 
 import '../screens/verify_screen.dart';

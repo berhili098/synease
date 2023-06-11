@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:syndease/utils/widgets.dart';
 
 const Color primaryColor = Color(0xff1E7FC3);
 const Color secondaryColor = Color(0xff61d0ff);
@@ -40,5 +39,3 @@ final whiteText = TextStyle(
   fontWeight: FontWeight.bold,
   color: backgroundColor,
 );
-
-

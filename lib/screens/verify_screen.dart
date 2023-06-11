@@ -8,7 +8,7 @@ import 'package:syndease/utils/widgets.dart';
 
 import 'package:get/get.dart';
 
-import '../utils/appVars.dart';
+import '../utils/app_vars.dart';
 
 class VerifyScreen extends StatelessWidget {
   const VerifyScreen({super.key});

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:get/get.dart';
 import 'package:syndease/models/sn_user.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/services.dart';
 
 import '../screens/welcome_screen.dart';

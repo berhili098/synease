@@ -7,7 +7,7 @@ import 'package:iconly/iconly.dart';
 import 'package:syndease/controllers/client/reports_list_controller.dart';
 import 'package:syndease/screens/client/new_report_screen.dart';
 import 'package:syndease/screens/client/report_detail_screen.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/loading_widget.dart';
 import 'package:syndease/utils/widgets.dart';
 

@@ -7,7 +7,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:syndease/controllers/welcome_controller.dart';
 
 import 'package:get/get.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/widgets.dart';
 
 class WelcomeScreen extends StatelessWidget {

@@ -11,7 +11,7 @@ import 'package:syndease/screens/syndic/syndic_home_screen.dart';
 
 import '../../models/category.dart';
 import '../../models/report.dart';
-import '../../utils/appVars.dart';
+import '../../utils/app_vars.dart';
 import '../../utils/services.dart';
 import '../../utils/widgets.dart';
 

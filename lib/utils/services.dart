@@ -17,7 +17,6 @@ import '../screens/complete_profile.dart';
 
 Future<Widget> initWidget() async {
   String fcm = await SessionManager().get('fcm') ?? "";
-  print(fcm);
   String progress = await SessionManager().get('progress') ?? "";
   Widget? main;
   SnUser snUser = await getUserFromSession();

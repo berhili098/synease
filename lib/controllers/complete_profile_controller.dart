@@ -5,7 +5,7 @@ import 'package:syndease/models/sn_user.dart';
 import 'package:syndease/screens/client/home_screen.dart';
 import 'package:syndease/utils/services.dart';
 
-import '../utils/appVars.dart';
+import '../utils/app_vars.dart';
 
 class CompleteProfileController extends GetxController {
   var backgroundColor = Colors.transparent;

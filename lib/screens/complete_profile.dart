@@ -6,7 +6,7 @@ import 'package:syndease/utils/widgets.dart';
 import 'package:get/get.dart';
 
 import '../controllers/complete_profile_controller.dart';
-import '../utils/appVars.dart';
+import '../utils/app_vars.dart';
 
 class CompleteProfile extends StatelessWidget {
   const CompleteProfile({super.key});

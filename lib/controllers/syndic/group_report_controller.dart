@@ -13,7 +13,7 @@ import 'package:syndease/utils/widgets.dart';
 import '../../models/group_report.dart';
 import '../../screens/syndic/syndic_home_screen.dart';
 import '../../screens/syndic/syndic_report_detail_screen.dart';
-import '../../utils/appVars.dart';
+import '../../utils/app_vars.dart';
 
 class GroupReportController extends GetxController {
   RxBool loading = false.obs;

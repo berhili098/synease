@@ -9,7 +9,7 @@ import 'package:syndease/screens/syndic/new_reports_list_screen.dart';
 import 'package:syndease/screens/syndic/syndic_report_detail_screen.dart';
 import 'package:syndease/utils/widgets.dart';
 
-import '../../utils/appVars.dart';
+import '../../utils/app_vars.dart';
 import '../../utils/loading_widget.dart';
 import '../../utils/services.dart';
 import '../profile_screen.dart';

@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:syndease/models/sn_user.dart';
 import 'package:syndease/screens/verify_success.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/services.dart';
 
 class VerifyController extends GetxController {

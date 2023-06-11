@@ -11,7 +11,7 @@ import 'package:syndease/controllers/client/home_controller.dart';
 import 'package:syndease/models/category.dart';
 import 'package:syndease/models/report.dart';
 import 'package:syndease/screens/client/home_screen.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/services.dart';
 
 class NewReportController extends GetxController {

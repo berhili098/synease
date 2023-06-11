@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:syndease/controllers/client/home_controller.dart';
 import 'package:syndease/screens/client/reports_list_screen.dart';
-import 'package:syndease/utils/appVars.dart';
+import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/loading_widget.dart';
 import 'package:syndease/utils/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
