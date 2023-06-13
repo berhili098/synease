@@ -8,6 +8,7 @@ import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:syndease/models/category.dart';
 import 'package:syndease/models/group_report.dart';
+import 'package:syndease/models/residence.dart';
 import 'package:syndease/models/sn_user.dart';
 import 'package:syndease/screens/syndic/syndic_home_screen.dart';
 import 'package:syndease/screens/welcome_screen.dart';
@@ -16,15 +17,19 @@ import '../models/report.dart';
 import '../screens/complete_profile.dart';
 
 Future<Widget> initWidget() async {
+  // generateSyndic();
+  getResidencesBySyndic("46W6NkQbM1PcVSYPd7iYlPn0wJv2");
   String fcm = await SessionManager().get('fcm') ?? "";
   String progress = await SessionManager().get('progress') ?? "";
   Widget? main;
+
   SnUser snUser = await getUserFromSession();
   snUser.fcm = fcm;
-  await resaveUser(snUser.uid);
+
   if (snUser.uid == null) {
     main = const WelcomeScreen();
   } else if (snUser.type == 0) {
+    await resaveUser(snUser.uid);
     switch (progress) {
       case 'homeScreen':
         main = const HomeScreen();
@@ -49,6 +54,20 @@ resaveUser(uid) async {
   });
 }
 
+getSyndicByResidence(Residence res) async {
+  SnUser syndic = SnUser();
+  await FirebaseFirestore.instance
+      .collection('sn_users')
+      .where('residence', arrayContains: res.toJson())
+      .get()
+      .then((value) {
+    if (value.docs.isNotEmpty) {
+      syndic = SnUser.fromJson(value.docs.first.data());
+    }
+  });
+  return syndic;
+}
+
 handlerPermission() async {
   var permission = await Permission.sensors.status;
   if (permission.isDenied) {
@@ -71,6 +90,36 @@ handlerPermission() async {
     await Permission.notification.request();
   }
 }
+
+String generateRandomString(int len) {
+  var r = Random();
+  const chars =
+      'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+  return List.generate(len, (index) => chars[r.nextInt(chars.length)]).join();
+}
+
+// generateSyndic() async {
+//   await FirebaseFirestore.instance
+//       .collection('sn_residences')
+//       .get()
+//       .then((value) async {
+//     List<Residence> list = value.docs.map((e) {
+//       return Residence.fromJson(e.data());
+//     }).toList();
+//     list = list.reversed.take(3).toList();
+
+//     if (value.size != 0) {
+//       SnUser snUser = SnUser();
+//       snUser.uid = "EUN3yAnmf0bAEO1EUEniNYHxQT73";
+//       snUser.phoneNumber = "+212666666665";
+//       snUser.fcm =  await SessionManager().get('fcm');
+//       snUser.type = 1;
+//       snUser.fullname = "ahmed syncdic";
+//       snUser.residence = list;
+//       saveUserToDb(snUser);
+//     }
+//   });
+// }
 
 Future<String> checkPhoneNumber(uid) async {
   String message = "not-found";
@@ -113,63 +162,6 @@ getUserFromDb(uid) async {
 
 saveToSession(SnUser user) async {
   await SessionManager().set("user", user);
-}
-
-Future getNearestSyndic(String latitude, String longitude) async {
-  SnUser snUser = SnUser();
-  var b = FirebaseFirestore.instance
-      .collection('sn_users')
-      .where('type', isEqualTo: 1)
-      .snapshots();
-  final firestore = FirebaseFirestore.instance;
-  final snapshot =
-      await firestore.collection('sn_users').where('type', isEqualTo: 1).get();
-  final docs = snapshot.docs;
-  final coords = docs.map((doc) => doc.data()).toList();
-  List<Map<String, double>> coordsList = [];
-  for (var element in coords) {
-    coordsList.add({
-      'latitude': double.parse(element['latitude']),
-      'longitude': double.parse(element['longitude']),
-    });
-  }
-  int closestIdx = findClosestCoord(coordsList, {
-    'latitude': double.parse(latitude),
-    'longitude': double.parse(longitude),
-  });
-  return SnUser.fromJson(docs[closestIdx].data());
-}
-
-int findClosestCoord(
-    List<Map<String, double>> coords, Map<String, double> target) {
-  double minDist = double.infinity;
-  int closestIdx = -1;
-
-  for (int i = 0; i < coords.length; i++) {
-    double dist = _distance(coords[i]['latitude']!, coords[i]['longitude']!,
-        target['latitude']!, target['longitude']!);
-    if (dist < minDist) {
-      minDist = dist;
-      closestIdx = i;
-    }
-  }
-
-  return closestIdx;
-}
-
-double _distance(double lat1, double lon1, double lat2, double lon2) {
-  const int earthRadius = 6371000;
-  double dLat = _toRadians(lat2 - lat1);
-  double dLon = _toRadians(lon2 - lon1);
-  double a = pow(sin(dLat / 2), 2) +
-      cos(_toRadians(lat1)) * cos(_toRadians(lat2)) * pow(sin(dLon / 2), 2);
-  double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-  double distance = earthRadius * c;
-  return distance;
-}
-
-double _toRadians(double degrees) {
-  return degrees * pi / 180;
 }
 
 Future<SnUser> getUserFromSession() async {
@@ -318,4 +310,32 @@ sendNotification(String? fcm, heading, content) async {
     content: content,
     heading: heading,
   ));
+}
+
+getAllSyndics() async {
+  List<SnUser> syndics = [];
+  await FirebaseFirestore.instance
+      .collection('sn_users')
+      .where('type', isEqualTo: 1)
+      .get()
+      .then((value) {
+    for (var element in value.docs) {
+      syndics.add(SnUser.fromJson(element.data()));
+    }
+  });
+  return syndics;
+}
+
+getResidencesBySyndic(String uid) async {
+  List<Residence> residences = [];
+  await FirebaseFirestore.instance
+      .collection('sn_users')
+      .doc(uid)
+      .get()
+      .then((value) {
+    for (var element in value.data()!['residence']) {
+      residences.add(Residence.fromJson(element));
+    }
+  });
+  return residences;
 }

@@ -11,35 +11,40 @@ String residenceToJson(Residence data) => json.encode(data.toJson());
 class Residence {
   String? uid;
   String? name;
-  String? longitude;
-  String? latitude;
-  String? addresse;
+  String? address;
   String? city;
 
   Residence({
     this.uid,
     this.name,
-    this.longitude,
-    this.latitude,
-    this.addresse,
+    this.address,
     this.city,
   });
+
+  Residence copyWith({
+    String? uid,
+    String? name,
+    String? address,
+    String? city,
+  }) =>
+      Residence(
+        uid: uid ?? this.uid,
+        name: name ?? this.name,
+        address: address ?? this.address,
+        city: city ?? this.city,
+      );
 
   factory Residence.fromJson(Map<String, dynamic> json) => Residence(
         uid: json["uid"],
         name: json["name"],
-        longitude: json["longitude"],
-        latitude: json["latitude"],
-        addresse: json["addresse"],
+        address: json["address"],
         city: json["city"],
       );
 
   Map<String, dynamic> toJson() => {
         "uid": uid,
         "name": name,
-        "longitude": longitude,
-        "latitude": latitude,
-        "addresse": addresse,
+        "address": address,
         "city": city,
       };
 }

@@ -21,11 +21,24 @@ class NewReportController extends GetxController {
   TextEditingController descriptionController = TextEditingController();
   final homeController = Get.put(HomeController());
   List<String> categoryList = [];
+  String advice = "";
   List<Categories> categoryItems = [];
   Report report = Report();
 
   XFile? file;
   File? image;
+
+  getAdviceByCategorie() {
+    for (var element in categoryItems) {
+      if (element.nameEn == categoryController.text.trim() ||
+          element.nameFr == categoryController.text.trim()) {
+        advice = Get.locale!.languageCode == 'fr'
+            ? element.automatedAdviceFr!
+            : element.automatedAdviceEn!;
+      }
+    }
+    update();
+  }
 
   selectImage() async {
     try {
@@ -42,8 +55,7 @@ class NewReportController extends GetxController {
         desiredAccuracy: LocationAccuracy.best);
     report.latitude = position.latitude.toString();
     report.longitude = position.longitude.toString();
-    report.syndicUid =
-        await getNearestSyndic(report.latitude!, report.longitude!);
+
     update();
   }
 
@@ -64,11 +76,11 @@ class NewReportController extends GetxController {
   }
 
   submit() async {
-    await verify().then((value)async {
+    await verify().then((value) async {
       if (value) {
         loading.toggle();
         update();
-      await  FirebaseStorage.instance
+        await FirebaseStorage.instance
             .ref('report-images/${file!.name}')
             .putFile(image!)
             .then((p0) {
@@ -78,7 +90,7 @@ class NewReportController extends GetxController {
             report.description = descriptionController.text.trim();
             report.category = categoryController.text.trim();
             report.status = "pending";
- 
+
             report.creationDate = DateTime.now().toString();
             await FirebaseFirestore.instance
                 .collection('reports')
@@ -118,24 +130,51 @@ class NewReportController extends GetxController {
     });
   }
 
+  beforeSubmit() {
+    getAdviceByCategorie();
+    Get.defaultDialog(
+      titlePadding: const EdgeInsets.all(9),
+      backgroundColor: Colors.white,
+      title: "Confirmation",
+      middleText: advice,
+      textConfirm: "Yes",
+      textCancel: "No",
+      confirmTextColor: Colors.white,
+      buttonColor: primaryColor,
+      onConfirm: () {
+        Get.back();
+        submit();
+      },
+      onCancel: () {
+        Get.back();
+      },
+    );
+  }
+
   @override
   Future<void> onInit() async {
     handlerPermission();
     getMyLocation();
     loading.toggle();
     update();
-    await getAllCategories().then((value) {
+
+    await getAllCategories().then((value) async {
       categoryItems = value;
       for (var element in categoryItems) {
         Get.locale!.languageCode == 'fr'
             ? categoryList.add(element.nameFr!)
             : categoryList.add(element.nameEn!);
       }
+
       loading.toggle();
       update();
     });
     await getUserFromSession().then((value) async {
       report.clientUid = value;
+      await getSyndicByResidence(value.residence!.first).then((value) async {
+        report.syndicUid = value;
+        print(value.uid);
+      });
     });
     super.onInit();
   }

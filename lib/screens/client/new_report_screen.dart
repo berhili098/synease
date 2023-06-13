@@ -140,7 +140,10 @@ class NewReportScreen extends StatelessWidget {
                                   width: 167.w,
                                   height: 45.h,
                                   child: SecondaryButton(
-                                      text: 'cancel', onpress: () {}),
+                                      text: 'cancel',
+                                      onpress: () {
+                                        Get.back();
+                                      }),
                                 ),
                                 SizedBox(
                                   width: 167.w,
@@ -148,7 +151,7 @@ class NewReportScreen extends StatelessWidget {
                                   child: SecondaryButton(
                                       text: 'submit',
                                       onpress: () {
-                                        controller.submit();
+                                        controller.beforeSubmit();
                                       }),
                                 ),
                               ],

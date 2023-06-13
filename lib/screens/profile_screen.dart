@@ -61,6 +61,13 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ),
                           64.verticalSpace,
+                          Text(
+                              "${controller.snUser.residence!.first.address} ${controller.snUser.residence!.first.city} ${controller.snUser.residence!.first.name}",
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w500,
+                              )).tr(),
+                          15.verticalSpace,
                           Text('firstname',
                               style: TextStyle(
                                 fontSize: 16.sp,

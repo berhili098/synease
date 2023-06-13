@@ -62,6 +62,12 @@
     "yournote":"Your Note",
     "fillallfields":"Please fill all fields",
     "reportadded":"Report added successfully"   ,
-    "'emptycomment'":"Comment cannot be empty"
+    "emptycomment":"Comment cannot be empty",
+    "selectyoursyndic":"Select your syndic",
+    "selectyourresidence":"Select your residence",
+    "pleaseenteryourapt":"Apartment number",
+    "pleaseenteryourstage":"Floor number",
+    "stage":"Floor",
+    "apt":"Apartment"
 
 }
