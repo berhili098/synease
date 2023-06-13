@@ -1,3 +1,4 @@
+import 'package:alt_sms_autofill/alt_sms_autofill.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
@@ -93,16 +94,16 @@ class VerifyController extends GetxController {
     });
     phoneNumber = await SessionManager().get('phone');
     verificationCode = Get.arguments;
-    // try {
-    //   smsListerner = await AltSmsAutofill().listenForSms.then((value) {
-    //     pinController.text == ""
-    //         ? pinController.text =
-    //             value!.replaceAll(RegExp(r'[^0-9]'), '').substring(0, 6)
-    //         : null;
+    try {
+      smsListerner = await AltSmsAutofill().listenForSms.then((value) {
+        pinController.clear();
+        update();
+        pinController.text =
+            value!.replaceAll(RegExp(r'[^0-9]'), '').substring(0, 6);
 
-    //     update();
-    //   });
-    // } catch (e) {}
+        update();
+      });
+    } catch (e) {}
     // TODO: implement onInit
     super.onInit();
   }
