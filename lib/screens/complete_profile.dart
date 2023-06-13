@@ -154,6 +154,7 @@ class CompleteProfile extends StatelessWidget {
                             SizedBox(
                               width: 0.4.sw,
                               child: PrimaryTextField(
+                                isNumber: true,
                                 controller: controller.stage,
                                 hintText: "pleaseenteryourstage",
                                 centered: false,
@@ -163,6 +164,7 @@ class CompleteProfile extends StatelessWidget {
                             SizedBox(
                               width: 0.4.sw,
                               child: PrimaryTextField(
+                                isNumber: true,
                                 controller: controller.apt,
                                 hintText: "pleaseenteryourapt",
                                 centered: false,

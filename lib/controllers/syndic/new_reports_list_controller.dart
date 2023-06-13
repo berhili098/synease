@@ -31,6 +31,32 @@ class NewReportListController extends GetxController {
     'declined',
     'ongoing'
   ];
+
+  changeColor() {
+    Color color = Colors.white;
+    switch (selected) {
+      case "alls":
+        color = primaryColor;
+        break;
+      case "pending":
+        color = orangeColor;
+        break;
+      case "completed":
+        color = successColor;
+        break;
+      case "declined":
+        color = dangerColor;
+        break;
+      case "ongoing":
+        color = successColor;
+        break;
+
+      default:
+        color = primaryColor;
+    }
+    return color;
+  }
+
   TextEditingController categoryController = TextEditingController();
   List<String> categoryList = [];
   List<Categories> categoryItems = [];

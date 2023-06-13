@@ -278,161 +278,144 @@ class SyndicHomeScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w400,
                                     )).tr()
                                 : Container(),
-                            controller.reportgroup.isNotEmpty
-                                ? SizedBox(
-                                    height: 1.sh - 550.h,
-                                    width: 1.sw,
-                                    child: ListView.builder(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 10.w),
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: controller.reportgroup.length,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        return Column(
-                                          children: [
-                                            21.verticalSpace,
-                                            InkWell(
-                                              onTap: () {
-                                                Get.to(
-                                                    () =>
-                                                        const GroupReportScreen(),
-                                                    transition:
-                                                        Transition.fadeIn,
-                                                    arguments: [
-                                                      controller
-                                                          .reportgroup[index]
+                            SizedBox(
+                              height: 1.sh - 550.h,
+                              width: 1.sw,
+                              child: ListView.builder(
+                                padding: EdgeInsets.symmetric(horizontal: 10.w),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: controller.reportgroup.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Column(
+                                    children: [
+                                      21.verticalSpace,
+                                      InkWell(
+                                        onTap: () {
+                                          Get.to(
+                                              () => const GroupReportScreen(),
+                                              transition: Transition.fadeIn,
+                                              arguments: [
+                                                controller.reportgroup[index]
+                                              ],
+                                              duration: const Duration(
+                                                  milliseconds: 500));
+                                        },
+                                        child: Container(
+                                            height: 80.h,
+                                            decoration: BoxDecoration(
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.grey
+                                                        .withOpacity(0.4),
+                                                    spreadRadius: 0,
+                                                    blurRadius: 10,
+                                                    offset: const Offset(0,
+                                                        4), // changes position of shadow
+                                                  ),
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(15.r),
+                                                color: Colors.white),
+                                            child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 18.w),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        controller
+                                                            .reportgroup[index]
+                                                            .reports![0]
+                                                            .title!,
+                                                        style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 16.sp,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                      ),
+                                                      SizedBox(
+                                                        width: 150.w,
+                                                        child: Text(
+                                                          controller
+                                                              .reportgroup[
+                                                                  index]
+                                                              .reports![0]
+                                                              .clientUid!
+                                                              .residence!
+                                                              .first
+                                                              .name!,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          maxLines: 2,
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 12.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400),
+                                                        ),
+                                                      ),
                                                     ],
-                                                    duration: const Duration(
-                                                        milliseconds: 500));
-                                              },
-                                              child: Container(
-                                                  height: 80.h,
-                                                  decoration: BoxDecoration(
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          color: Colors.grey
-                                                              .withOpacity(0.4),
-                                                          spreadRadius: 0,
-                                                          blurRadius: 10,
-                                                          offset: const Offset(
-                                                              0,
-                                                              4), // changes position of shadow
+                                                  ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      SizedBox(
+                                                        height: 23.h,
+                                                        child: CategoryWidget(
+                                                          category: controller
+                                                              .reportgroup[
+                                                                  index]
+                                                              .reports![0]
+                                                              .category!,
+                                                          isReversed: true,
                                                         ),
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              15.r),
-                                                      color: Colors.white),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 18.w),
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              controller
-                                                                  .reportgroup[
-                                                                      index]
-                                                                  .reports![0]
-                                                                  .title!,
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize:
-                                                                      16.sp,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w700),
-                                                            ),
-                                                            SizedBox(
-                                                              width: 150.w,
-                                                              child: Text(
-                                                                controller
-                                                                    .reportgroup[
-                                                                        index]
-                                                                    .reports![0]
-                                                                    .description!,
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                                maxLines: 2,
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontSize:
-                                                                        12.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w400),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Column(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            SizedBox(
-                                                              height: 23.h,
-                                                              child:
-                                                                  CategoryWidget(
-                                                                category: controller
-                                                                    .reportgroup[
-                                                                        index]
-                                                                    .reports![0]
-                                                                    .category!,
-                                                                isReversed:
-                                                                    true,
-                                                              ),
-                                                            ),
-                                                            8.verticalSpace,
-                                                            Text(
-                                                              changeDateToText(
-                                                                  controller
-                                                                      .reportgroup[
-                                                                          index]
-                                                                      .reports![
-                                                                          0]
-                                                                      .creationDate!),
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize:
-                                                                      12.sp,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w700),
-                                                            )
-                                                          ],
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                      // separatorBuilder:
-                                      //     (BuildContext context, int index) {
-                                      //   return 21.verticalSpace;
-                                      // },
-                                    ),
-                                  )
-                                : Container()
+                                                      ),
+                                                      8.verticalSpace,
+                                                      Text(
+                                                        changeDateToText(
+                                                            controller
+                                                                .reportgroup[
+                                                                    index]
+                                                                .reports![0]
+                                                                .creationDate!),
+                                                        style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 12.sp,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                      )
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                            )),
+                                      ),
+                                    ],
+                                  );
+                                },
+                                // separatorBuilder:
+                                //     (BuildContext context, int index) {
+                                //   return 21.verticalSpace;
+                                // },
+                              ),
+                            )
                           ],
                         ),
                       ),

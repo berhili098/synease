@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:syndease/models/category.dart';
+import 'package:syndease/models/report.dart';
 import 'package:syndease/models/sn_user.dart';
 
-import '../../models/category.dart';
-import '../../models/report.dart';
 import '../../utils/app_vars.dart';
 import '../../utils/services.dart';
 
-class ReportsListController extends GetxController {
+class ResidenceReportsController extends GetxController {
   RxBool loading = false.obs;
   String selected = 'alls';
   SnUser snUser = SnUser();
@@ -82,7 +82,7 @@ class ReportsListController extends GetxController {
       }
       await getUserFromSession().then((value) async {
         snUser = value;
-        await getAllReports(snUser).then((value) async {
+        await getReportsByResidence(snUser).then((value) async {
           reports = value;
           loading.toggle();
           update();

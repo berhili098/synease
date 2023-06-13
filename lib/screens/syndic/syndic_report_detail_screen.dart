@@ -143,6 +143,28 @@ class SyndicReportDetailScreen extends StatelessWidget {
                             ],
                           ),
                           24.verticalSpace,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(controller.report.clientUid!.phoneNumber!,
+                                  style: TextStyle(
+                                    fontSize: 15.sp,
+                                    color: darkColor,
+                                    fontWeight: FontWeight.w700,
+                                  )),
+                              SizedBox(
+                                width: 100.w,
+                                height: 30.h,
+                                child: SecondaryButton(
+                                    text: "call",
+                                    onpress: () {
+                                      controller.call(controller
+                                          .report.clientUid!.phoneNumber!);
+                                    }),
+                              )
+                            ],
+                          ),
+                          24.verticalSpace,
                           Text(
                             controller.report.title!,
                             style: TextStyle(
@@ -167,6 +189,15 @@ class SyndicReportDetailScreen extends StatelessWidget {
                                 height: 27.h,
                                 child: CategoryWidget(
                                   category: controller.report.category!,
+                                  isReversed: true,
+                                ),
+                              ),
+                              22.horizontalSpace,
+                              SizedBox(
+                                height: 27.h,
+                                child: CategoryWidget(
+                                  category: controller
+                                      .report.clientUid!.residence!.first.name!,
                                   isReversed: true,
                                 ),
                               )

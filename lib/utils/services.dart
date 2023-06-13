@@ -235,6 +235,22 @@ getSyndicPendingReports(SnUser snUser) async {
   return reports;
 }
 
+getReportsByResidence(SnUser snUser) async {
+  List<Report> reports = [];
+  await FirebaseFirestore.instance
+      .collection('reports')
+      .where('client_uid.residence',
+          arrayContains: snUser.residence![0].toJson())
+      .orderBy('creation_date', descending: true)
+      .get()
+      .then((value) {
+    for (var element in value.docs) {
+      reports.add(Report.fromJson(element.data()));
+    }
+  });
+  return reports;
+}
+
 getAllReports(SnUser snUser) async {
   List<Report> reports = [];
   await FirebaseFirestore.instance
@@ -269,8 +285,8 @@ getGroupReportsSyndic(SnUser snUser) async {
   List<Reportgroup> reportgroup = [];
   await FirebaseFirestore.instance
       .collection('group_reports')
-      .where('syndic_uid', isEqualTo: snUser.uid)
       .orderBy('creation_date', descending: true)
+      .where('syndic_uid', isEqualTo: snUser.uid)
       .get()
       .then((value) {
     for (var element in value.docs) {

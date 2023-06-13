@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:get/get.dart';
 import 'package:syndease/models/sn_user.dart';
+import 'package:syndease/screens/client/my_syndic_screen.dart';
 import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/services.dart';
 
@@ -81,5 +82,11 @@ class ProfileController extends GetxController {
       update();
     });
     super.onInit();
+  }
+
+  mySyndic() async {
+    getSyndicByResidence(snUser.residence!.first).then((value) {
+      Get.to(() => const MySyndicScreen(), arguments: value);
+    });
   }
 }

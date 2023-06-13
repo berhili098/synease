@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:syndease/utils/services.dart';
 import 'package:syndease/utils/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../models/group_report.dart';
 import '../../models/report.dart';
@@ -131,5 +132,14 @@ class SyndicReportDetailController extends GetxController {
     loading.toggle();
     update();
     super.onInit();
+  }
+
+  Future<void> call(String s) async {
+    final uril = Uri(scheme: 'tel', path: s);
+    if (await canLaunchUrl(uril)) {
+      await launchUrl(uril);
+    } else {
+      throw 'Could not launch $uril';
+    }
   }
 }

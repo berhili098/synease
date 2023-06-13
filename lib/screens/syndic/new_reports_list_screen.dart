@@ -167,43 +167,46 @@ class NewReportsListScreen extends StatelessWidget {
                                 text: "reports",
                                 style: blueTitleTextStyle),
                             24.verticalSpace,
-                            SizedBox(
-                              height: 27.h,
-                              child: ListView.separated(
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: controller.selections.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return InkWell(
-                                    onTap: () {
-                                      controller.categoryController.text = '';
-                                      controller.changeSelection(
-                                          controller.selections[index]);
-                                    },
-                                    child: Container(
-                                      width: 79.w,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(6.8.r),
-                                        color: controller.selected ==
-                                                controller.selections[index]
-                                            ? primaryColor
-                                            : primaryColor.withOpacity(0.5),
+                            Center(
+                              child: SizedBox(
+                                height: 27.h,
+                                child: ListView.separated(
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: controller.selections.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return InkWell(
+                                      onTap: () {
+                                        controller.categoryController.text = '';
+                                        controller.changeSelection(
+                                            controller.selections[index]);
+                                      },
+                                      child: Container(
+                                        width: 63.w,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(6.8.r),
+                                          color: controller.selected ==
+                                                  controller.selections[index]
+                                              ? controller.changeColor()
+                                              : primaryColor.withOpacity(0.5),
+                                        ),
+                                        child: Center(
+                                            child: Text(
+                                          controller.selections[index],
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12.sp),
+                                        ).tr()),
                                       ),
-                                      child: Center(
-                                          child: Text(
-                                        controller.selections[index],
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12.sp),
-                                      ).tr()),
-                                    ),
-                                  );
-                                },
-                                separatorBuilder:
-                                    (BuildContext context, int index) {
-                                  return 8.horizontalSpace;
-                                },
+                                    );
+                                  },
+                                  separatorBuilder:
+                                      (BuildContext context, int index) {
+                                    return 8.horizontalSpace;
+                                  },
+                                ),
                               ),
                             ),
                             15.verticalSpace,
@@ -324,7 +327,10 @@ class NewReportsListScreen extends StatelessWidget {
                                                         child: Text(
                                                           controller
                                                               .reports2[index]
-                                                              .description!,
+                                                              .clientUid!
+                                                              .residence!
+                                                              .first
+                                                              .name!,
                                                           overflow: TextOverflow
                                                               .ellipsis,
                                                           maxLines: 2,

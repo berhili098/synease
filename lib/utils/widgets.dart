@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syndease/utils/app_vars.dart';
 
@@ -12,11 +13,13 @@ class PrimaryTextField extends StatelessWidget {
   bool? centered;
   bool? isDescription;
   bool? disabled;
+  bool? isNumber;
   PrimaryTextField({
     this.label,
     required this.hintText,
     this.controller,
     this.isDescription = false,
+    this.isNumber = false,
     this.disabled = false,
     this.prefixIcon,
     this.visibility = false,
@@ -52,7 +55,13 @@ class PrimaryTextField extends StatelessWidget {
             ],
           ),
           child: TextFormField(
-            keyboardType: TextInputType.multiline,
+            keyboardType: isNumber! ? TextInputType.number : TextInputType.text,
+            inputFormatters: isNumber!
+                ? [
+                    LengthLimitingTextInputFormatter(3),
+                    FilteringTextInputFormatter.digitsOnly,
+                  ]
+                : [],
             maxLines: !isDescription! ? 1 : null,
             minLines: !isDescription! ? 1 : 4,
             enabled: disabled == true ? false : true,

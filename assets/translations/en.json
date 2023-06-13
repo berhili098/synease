@@ -68,6 +68,10 @@
     "pleaseenteryourapt":"Apartment number",
     "pleaseenteryourstage":"Floor number",
     "stage":"Floor",
-    "apt":"Apartment"
+    "apt":"Apartment",
+    "call":"Call",
+    "mysyndic":"My Syndic",
+    "yourreports":"Your Reports ->",
+    "residencereports":"{} Reports ->"
 
 }

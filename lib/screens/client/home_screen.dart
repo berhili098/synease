@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:syndease/controllers/client/home_controller.dart';
 import 'package:syndease/screens/client/reports_list_screen.dart';
+import 'package:syndease/screens/client/residence_reports_screen.dart';
 import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/loading_widget.dart';
 import 'package:syndease/utils/widgets.dart';
@@ -90,18 +91,42 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           32.verticalSpace,
-                          InkWell(
-                            onTap: () => Get.to(() => const ReportsListScreen(),
-                                transition: Transition.fadeIn,
-                                duration: const Duration(milliseconds: 500)),
-                            child: Text(
-                              'seeall',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w700,
-                                color: primaryColor,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: () => Get.to(
+                                    () => const ReportsListScreen(),
+                                    transition: Transition.fadeIn,
+                                    duration:
+                                        const Duration(milliseconds: 500)),
+                                child: Text(
+                                  'yourreports',
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: primaryColor,
+                                  ),
+                                ).tr(),
                               ),
-                            ).tr(),
+                              InkWell(
+                                onTap: () => Get.to(
+                                    () => const ResidenceReportsScreen(),
+                                    transition: Transition.fadeIn,
+                                    duration:
+                                        const Duration(milliseconds: 500)),
+                                child: Text(
+                                  plural('residencereports', 0, args: [
+                                    controller.snUser.residence!.first.name!
+                                  ]),
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: primaryColor,
+                                  ),
+                                ).tr(),
+                              ),
+                            ],
                           ),
                           16.verticalSpace,
                           controller.reports.isNotEmpty

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:syndease/controllers/client/reports_list_controller.dart';
+import 'package:syndease/controllers/client/residence_reports_controller.dart';
 import 'package:syndease/screens/client/new_report_screen.dart';
 import 'package:syndease/screens/client/report_detail_screen.dart';
 import 'package:syndease/utils/app_vars.dart';
@@ -14,8 +15,8 @@ import 'package:syndease/utils/widgets.dart';
 import '../../utils/services.dart';
 import '../profile_screen.dart';
 
-class ReportsListScreen extends StatelessWidget {
-  const ReportsListScreen({super.key});
+class ResidenceReportsScreen extends StatelessWidget {
+  const ResidenceReportsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +38,8 @@ class ReportsListScreen extends StatelessWidget {
           ),
         ),
         backgroundColor: backColor,
-        body: GetBuilder<ReportsListController>(
-            init: ReportsListController(),
+        body: GetBuilder<ResidenceReportsController>(
+            init: ResidenceReportsController(),
             builder: (controller) {
               return controller.loading.value
                   ? Center(child: LoadingWidget())
