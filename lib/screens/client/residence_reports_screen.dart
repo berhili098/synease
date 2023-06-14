@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
-import 'package:syndease/controllers/client/reports_list_controller.dart';
 import 'package:syndease/controllers/client/residence_reports_controller.dart';
 import 'package:syndease/screens/client/new_report_screen.dart';
 import 'package:syndease/screens/client/report_detail_screen.dart';
@@ -116,7 +115,7 @@ class ResidenceReportsScreen extends StatelessWidget {
                                           controller.selections[index]);
                                     },
                                     child: Container(
-                                      width: 79.w,
+                                      width: 64.w,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(6.8.r),

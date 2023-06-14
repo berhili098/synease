@@ -115,7 +115,7 @@ class ReportsListScreen extends StatelessWidget {
                                           controller.selections[index]);
                                     },
                                     child: Container(
-                                      width: 79.w,
+                                      width: 64.w,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(6.8.r),
