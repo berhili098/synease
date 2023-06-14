@@ -86,9 +86,12 @@ class NewReportScreen extends StatelessWidget {
                             ),
                             17.verticalSpace,
                             Center(
-                              child: SizedBox(
+                              child: Container(
                                 height: 45.h,
-                                width: 136.w,
+                                constraints: BoxConstraints(
+                                  minWidth: 140.w,
+                                  maxWidth: 156.w,
+                                ),
                                 child: SecondaryButton(
                                     text: 'addpicture',
                                     widget: Icon(
