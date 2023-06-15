@@ -62,7 +62,6 @@ dependencies:
   wave: ^0.2.2
   flutter_verification_code: ^1.1.6
   quiver: ^3.2.1
-  alt_sms_autofill: ^1.0.0
   pin_code_fields: ^7.4.0
   custom_dropdown_tcb: ^0.0.4
   dropdown_button2: ^2.1.2
