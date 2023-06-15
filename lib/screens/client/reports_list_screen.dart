@@ -115,7 +115,9 @@ class ReportsListScreen extends StatelessWidget {
                                           controller.selections[index]);
                                     },
                                     child: Container(
-                                      width: 64.w,
+                                      constraints: BoxConstraints(
+                                        minWidth: 64.w,
+                                      ),
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(6.8.r),
@@ -269,6 +271,7 @@ class ReportsListScreen extends StatelessWidget {
                                                                 .filterReports()[
                                                                     index]
                                                                 .creationDate!),
+                                                        maxLines: 1,
                                                         style: TextStyle(
                                                             color: Colors.black,
                                                             fontSize: 12.sp,

@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:iconly/iconly.dart';
 import 'package:syndease/controllers/profile_controller.dart';
@@ -30,9 +32,34 @@ class ProfileScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             82.verticalSpace,
-                            Image.asset(
-                              'assets/images/syndease.png',
-                              height: 33.h,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Get.back();
+                                  },
+                                  child: Container(
+                                    width: 29.w,
+                                    height: 29.h,
+                                    decoration: const BoxDecoration(
+                                      border: Border.fromBorderSide(BorderSide(
+                                          color: darkColor, width: 2.0)),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Icon(
+                                        IconlyLight.arrow_left_2,
+                                        size: 19.sp,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Image.asset(
+                                  'assets/images/syndease.png',
+                                  height: 33.h,
+                                ),
+                              ],
                             ),
                             64.verticalSpace,
                             Row(

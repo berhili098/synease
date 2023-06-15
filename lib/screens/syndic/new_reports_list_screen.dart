@@ -183,7 +183,9 @@ class NewReportsListScreen extends StatelessWidget {
                                             controller.selections[index]);
                                       },
                                       child: Container(
-                                        width: 63.w,
+                                        constraints: BoxConstraints(
+                                          minWidth: 64.w,
+                                        ),
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(6.8.r),
@@ -197,7 +199,7 @@ class NewReportsListScreen extends StatelessWidget {
                                           controller.selections[index],
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 12.sp),
+                                              fontSize: 11.sp),
                                         ).tr()),
                                       ),
                                     );
@@ -375,22 +377,18 @@ class NewReportsListScreen extends StatelessWidget {
                                                                     .status!,
                                                               )),
                                                       8.verticalSpace,
-                                                      SizedBox(
-                                                        width: 70.w,
-                                                        child: Text(
-                                                          changeDateToText(
-                                                              controller
-                                                                  .reports2[
-                                                                      index]
-                                                                  .creationDate!),
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.black,
-                                                              fontSize: 12.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700),
-                                                        ),
+                                                      Text(
+                                                        changeDateToText(
+                                                            controller
+                                                                .reports2[index]
+                                                                .creationDate!),
+                                                        maxLines: 1,
+                                                        style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 12.sp,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
                                                       )
                                                     ],
                                                   )

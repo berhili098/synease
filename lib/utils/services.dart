@@ -59,6 +59,7 @@ getSyndicByResidence(Residence res) async {
   await FirebaseFirestore.instance
       .collection('sn_users')
       .where('residence', arrayContains: res.toJson())
+      .where('type', isEqualTo: 1)
       .get()
       .then((value) {
     if (value.docs.isNotEmpty) {

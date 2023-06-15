@@ -7,9 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/services.dart';
-
 import 'package:firebase_core/firebase_core.dart';
-
 import 'firebase_options.dart';
 
 void main() async {
