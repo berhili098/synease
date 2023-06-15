@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '811673093607',
     projectId: 'synease-18d6e',
     storageBucket: 'synease-18d6e.appspot.com',
-    iosClientId: '811673093607-s6kifhisran1jemhe07un360turvh80a.apps.googleusercontent.com',
+    iosClientId:
+        '811673093607-s6kifhisran1jemhe07un360turvh80a.apps.googleusercontent.com',
     iosBundleId: 'com.example.syndease',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '811673093607',
     projectId: 'synease-18d6e',
     storageBucket: 'synease-18d6e.appspot.com',
-    iosClientId: '811673093607-s6kifhisran1jemhe07un360turvh80a.apps.googleusercontent.com',
+    iosClientId:
+        '811673093607-s6kifhisran1jemhe07un360turvh80a.apps.googleusercontent.com',
     iosBundleId: 'com.example.syndease',
   );
 }
