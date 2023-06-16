@@ -47,7 +47,12 @@ class NewReportController extends GetxController {
         image = File(file!.path);
         update();
       }
-    } catch (e) {}
+    } catch (e) {
+      Get.snackbar(
+        "Error",
+        tr("Select Image Error"),
+      );
+    }
   }
 
   getMyLocation() async {
@@ -105,7 +110,7 @@ class NewReportController extends GetxController {
 
             Get.snackbar(
               "Success",
-              tr("reportadded"),
+              tr("report added"),
             );
 
             loading.toggle();
