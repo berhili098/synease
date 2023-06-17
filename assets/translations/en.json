@@ -66,12 +66,15 @@
     "selectyoursyndic":"Select your syndic",
     "selectyourresidence":"Select your residence",
     "pleaseenteryourapt":"Apartment number",
-    "pleaseenteryourstage":"Floor number",
+    "pleaseenteryourstage":"Floor number",  
     "stage":"Floor",
     "apt":"Apartment",
     "call":"Call",
     "mysyndic":"My Syndic",
     "yourreports":"Your Reports ->",
-    "residencereports":"{} Reports ->"
+    "residencereports":"{} Reports ->",
+    "timeout":"Timeout",
+    "codsent":"Code sent",
+    "resendcode":"Resend Code"
 
 }

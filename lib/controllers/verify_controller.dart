@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_session_manager/flutter_session_manager.dart';
@@ -14,6 +15,7 @@ class VerifyController extends GetxController {
   String verificationCode = "";
   String phoneNumber = "";
   RxBool loading = false.obs;
+  bool resendEnabled = true;
   var smsListerner;
   String? fcm;
 
@@ -112,5 +114,32 @@ class VerifyController extends GetxController {
     smsListerner.cancel();
     // TODO: implement dispose
     super.dispose();
+  }
+
+  resend() async {
+    if (resendEnabled) {
+      await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+        verificationCompleted: (phonesAuthCredentials) async {},
+        verificationFailed: (FirebaseAuthException e) async {
+          Get.snackbar(tr('error'), e.message!,
+              colorText: Colors.white, backgroundColor: dangerColor);
+        },
+        codeSent: (verificationId, resendingToken) async {
+          verificationCode = verificationId;
+
+          Get.snackbar(tr('success'), tr('codeSent'),
+              colorText: Colors.white, backgroundColor: successColor);
+          resendEnabled = false;
+        },
+        codeAutoRetrievalTimeout: (verificationId) async {
+          Get.snackbar(tr('error'), tr('timeout'),
+              colorText: Colors.white, backgroundColor: dangerColor);
+        },
+      );
+    } else {
+      Get.snackbar(tr('error'), "Send again in other time",
+          colorText: Colors.white, backgroundColor: dangerColor);
+    }
   }
 }

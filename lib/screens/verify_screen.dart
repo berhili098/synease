@@ -47,7 +47,6 @@ class VerifyScreen extends StatelessWidget {
                           Text("entercode", style: textStyle).tr(),
                           70.verticalSpace,
                           Center(
-                             
                               child: Center(
                                   child: PinCodeTextField(
                             cursorColor: darkColor,
@@ -103,6 +102,22 @@ class VerifyScreen extends StatelessWidget {
                             loading: controller.loading.value,
                             text: "verifynumber",
                             onpress: () => {controller.submit()},
+                          ),
+                          20.verticalSpace,
+                          Center(
+                            child: TextButton(
+                                onPressed: () {
+                                  controller.resend();
+                                },
+                                child: Text(
+                                  'resendcode',
+                                  style: TextStyle(
+                                      color: controller.resendEnabled
+                                          ? primaryColor
+                                          : primaryColor.withOpacity(0.5),
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold),
+                                ).tr()),
                           ),
                           80.verticalSpace,
                         ]),

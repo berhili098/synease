@@ -55,7 +55,12 @@ class WelcomeController extends GetxController {
                 transition: Transition.fadeIn,
                 duration: const Duration(milliseconds: 500));
           },
-          codeAutoRetrievalTimeout: (verificationId) async {},
+          codeAutoRetrievalTimeout: (verificationId) async {
+            loading.toggle();
+            update();
+            Get.snackbar(tr('error'), tr('timeout'),
+                colorText: Colors.white, backgroundColor: dangerColor);
+          },
         );
       } else {
         loading.toggle();
