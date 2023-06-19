@@ -17,8 +17,6 @@ import '../models/report.dart';
 import '../screens/complete_profile.dart';
 
 Future<Widget> initWidget() async {
-  // generateSyndic();
-  getResidencesBySyndic("46W6NkQbM1PcVSYPd7iYlPn0wJv2");
   String fcm = await SessionManager().get('fcm') ?? "";
   String progress = await SessionManager().get('progress') ?? "";
   Widget? main;

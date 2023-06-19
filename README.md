@@ -156,4 +156,4 @@ class MyApp extends StatelessWidget {
 
 ## Conclusion
 
-I will be happy to answer any questions that you may have on this approach, and if you want to lend a hand with the boilerplate then please feel free to submit an issue and/or pull request 🙂
+It was a real fun making this project and  🙂

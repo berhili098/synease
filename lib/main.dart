@@ -2,16 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart'; 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syndease/utils/app_vars.dart';
 import 'package:syndease/utils/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-void main() async {
-  await GetStorage.init();
+void main() async { 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
