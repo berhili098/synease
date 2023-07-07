@@ -96,29 +96,7 @@ String generateRandomString(int len) {
       'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
   return List.generate(len, (index) => chars[r.nextInt(chars.length)]).join();
 }
-
-// generateSyndic() async {
-//   await FirebaseFirestore.instance
-//       .collection('sn_residences')
-//       .get()
-//       .then((value) async {
-//     List<Residence> list = value.docs.map((e) {
-//       return Residence.fromJson(e.data());
-//     }).toList();
-//     list = list.reversed.take(3).toList();
-
-//     if (value.size != 0) {
-//       SnUser snUser = SnUser();
-//       snUser.uid = "EUN3yAnmf0bAEO1EUEniNYHxQT73";
-//       snUser.phoneNumber = "+212666666665";
-//       snUser.fcm =  await SessionManager().get('fcm');
-//       snUser.type = 1;
-//       snUser.fullname = "ahmed syncdic";
-//       snUser.residence = list;
-//       saveUserToDb(snUser);
-//     }
-//   });
-// }
+ 
 
 Future<String> checkPhoneNumber(uid) async {
   String message = "not-found";
@@ -129,14 +107,7 @@ Future<String> checkPhoneNumber(uid) async {
       .then((value) {
     if (value.exists && value['fullname'] != '') message = "found-in-users";
   });
-  // await FirebaseFirestore.instance
-  //     .collection('sn_users')
-  //     .where('uid', isEqualTo: "wR3PlhkC1WQ7lJlBFYkqAGCM6Sl2")
-  //     .snapshots()
-  //     .first
-  //     .then((value) {
-  //   if (value.size != 0) message = "found-in-users";
-  // });
+ 
   return message;
 }
 
