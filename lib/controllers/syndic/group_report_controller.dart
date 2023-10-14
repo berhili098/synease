@@ -140,10 +140,10 @@ class GroupReportController extends GetxController {
                               } else {
                                 update();
                               }
-                              final SyndicHomeSController = Get.put(
+                              final syndicHomeSController = Get.put(
                                 SyndicHomeController(),
                               );
-                              SyndicHomeSController.onInit();
+                              syndicHomeSController.onInit();
                               Get.offAll(() => const SyndicHomeScreen(),
                                   transition: Transition.fadeIn,
                                   duration: const Duration(milliseconds: 500));
