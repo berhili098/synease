@@ -186,17 +186,24 @@ class GroupReportScreen extends StatelessWidget {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
-                                                        controller
-                                                            .reportgroup
-                                                            .reports![index]
-                                                            .title!,
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 16.sp,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
+                                                      SizedBox(
+                                                        width: 120.w,
+                                                        child: Text(
+                                                          controller
+                                                              .reportgroup
+                                                              .reports![index]
+                                                              .title!,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 16.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
+                                                        ),
                                                       ),
                                                       SizedBox(
                                                         width: 150.w,

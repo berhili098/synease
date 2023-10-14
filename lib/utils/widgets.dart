@@ -164,10 +164,12 @@ class SecondaryButton extends StatelessWidget {
         ),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                shadowColor: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.r))),
+              backgroundColor: Colors.transparent,
+              shadowColor: Colors.transparent,
+              shape: const RoundedRectangleBorder(
+                  // borderRadius: BorderRadius.circular(10.r),
+                  ),
+            ),
             onPressed: () {
               loading == true ? null : onpress();
             },

@@ -96,8 +96,7 @@ class CompleteProfileController extends GetxController {
     getUserFromSession().then((value) {
       snUser = value;
       getAllSyndics().then((value) {
-        allSyndics = value;
-        print(allSyndics.length);
+        allSyndics = value; 
         loading = false;
         update();
       });

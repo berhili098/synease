@@ -205,8 +205,7 @@ class NewReportListController extends GetxController {
                       height: 35.h,
                       child: SecondaryButton(
                           text: 'confirm',
-                          onpress: () async {
-                            print("status" + firstStatus);
+                          onpress: () async { 
                             if (commentController.text.trim().isEmpty) {
                               Get.snackbar(tr('error'), tr('emptycomment'));
                               return;

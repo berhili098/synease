@@ -216,17 +216,22 @@ class ReportsListScreen extends StatelessWidget {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
-                                                        controller
-                                                            .filterReports()[
-                                                                index]
-                                                            .title!,
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 16.sp,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
+                                                      SizedBox(
+                                                        width: 120.w,
+                                                        child: Text(
+                                                          controller
+                                                              .filterReports()[
+                                                                  index]
+                                                              .title!,
+                                                          maxLines: 2,
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 16.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
+                                                        ),
                                                       ),
                                                       SizedBox(
                                                         width: 150.w,

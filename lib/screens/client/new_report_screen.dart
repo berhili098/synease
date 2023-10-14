@@ -90,7 +90,7 @@ class NewReportScreen extends StatelessWidget {
                                 height: 45.h,
                                 constraints: BoxConstraints(
                                   minWidth: 140.w,
-                                  maxWidth: 156.w,
+                                  maxWidth: 190.w,
                                 ),
                                 child: SecondaryButton(
                                     text: 'addpicture',

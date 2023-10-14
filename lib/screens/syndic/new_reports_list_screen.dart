@@ -302,7 +302,7 @@ class NewReportsListScreen extends StatelessWidget {
                                                       : Padding(
                                                           padding:
                                                               EdgeInsets.only(
-                                                                  left: 50.w),
+                                                                  left: 10.w),
                                                           child: Container(),
                                                         ),
                                                   Column(
@@ -313,16 +313,21 @@ class NewReportsListScreen extends StatelessWidget {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Text(
-                                                        controller
-                                                            .reports2[index]
-                                                            .title!,
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 16.sp,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
+                                                      SizedBox(
+                                                        width: 120.w,
+                                                        child: Text(
+                                                          controller
+                                                              .reports2[index]
+                                                              .title!,
+                                                          maxLines: 2,
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 16.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
+                                                        ),
                                                       ),
                                                       SizedBox(
                                                         width: 140.w,

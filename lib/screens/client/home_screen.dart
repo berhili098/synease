@@ -171,12 +171,17 @@ class HomeScreen extends StatelessWidget {
                                           ],
                                         ),
                                         33.verticalSpace,
-                                        Text(
-                                          controller.reports[0].title!,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              color: Colors.white,
-                                              fontSize: 17.sp),
+                                        SizedBox(
+                                          width: 120.w,
+                                          child: Text(
+                                            controller.reports[0].title!,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w700,
+                                                color: Colors.white,
+                                                fontSize: 17.sp),
+                                          ),
                                         ),
                                         9.verticalSpace,
                                         SizedBox(

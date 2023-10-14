@@ -16,8 +16,7 @@ class SyndicReportDetailController extends GetxController {
   RxBool loading = false.obs;
   Report report = Report();
   TextEditingController commentController = TextEditingController();
-  submit(status) {
-    print(status);
+  submit(status) { 
     showDialog(
         context: Get.context!,
         builder: (ctx) {

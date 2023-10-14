@@ -65,23 +65,26 @@ class ProfileScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                GradientText(
-                                    text: 'accountinformation',
-                                    gradient: const LinearGradient(
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                        colors: [
-                                          primaryColor,
-                                          Color(0xff61d0ff)
-                                        ]),
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w700,
-                                    )),
+                                SizedBox(
+                                  width: 129.w,
+                                  child: GradientText(
+                                      text: 'accountinformation',
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: [
+                                            primaryColor,
+                                            Color(0xff61d0ff)
+                                          ]),
+                                      style: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.w700,
+                                      )),
+                                ),
                                 controller.snUser.type == 0
                                     ? Container(
-                                        width: 120.w,
-                                        height: 30.h,
+                                        width: 137.w,
+                                        height: 35.h,
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(

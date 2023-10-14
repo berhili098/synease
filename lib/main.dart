@@ -10,6 +10,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async { 
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -47,6 +48,13 @@ void main() async {
                   primary: primaryColor,
                 ),
             primaryColor: primaryColor,
+            scaffoldBackgroundColor: Colors.white,
+            buttonTheme: ButtonThemeData(
+              colorScheme: ThemeData().colorScheme.copyWith(
+                    primary: primaryColor,
+                  ),
+                  buttonColor: primaryColor
+            )
           ),
           home: main,
         );

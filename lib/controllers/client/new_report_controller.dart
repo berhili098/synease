@@ -177,8 +177,7 @@ class NewReportController extends GetxController {
     await getUserFromSession().then((value) async {
       report.clientUid = value;
       await getSyndicByResidence(value.residence!.first).then((value) async {
-        report.syndicUid = value;
-        print(value.uid);
+        report.syndicUid = value; 
       });
     });
     super.onInit();
